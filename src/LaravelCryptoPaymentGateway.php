@@ -2,6 +2,8 @@
 
 namespace Victorybiz\LaravelCryptoPaymentGateway;
 
+use Ramsey\Uuid\Uuid;
+
 class LaravelCryptoPaymentGateway
 {
     public $cryptobox;
@@ -173,7 +175,7 @@ class LaravelCryptoPaymentGateway
      */
     public static function startPaymentSession($options)
     {
-        $payment_session_id = \Illuminate\Support\Str::uuid()->toString();
+        $payment_session_id = Uuid::uuid4()->toString();
         $payment_session_id = hash("sha512", $payment_session_id);
         // save to session
         $options['previous'] = url()->previous();
