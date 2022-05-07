@@ -181,7 +181,7 @@ class LaravelCryptoPaymentGateway
         $options['previous'] = url()->previous();
         session(["paymentbox_{$payment_session_id}" => $options]);
 
-        $paymentbox_url = action(\Victorybiz\LaravelCryptoPaymentGateway\Http\Controllers\CryptoPaymentController::class, ['cryptopsid' => $payment_session_id]);
+        $paymentbox_url = action(\\\\Victorybiz\LaravelCryptoPaymentGateway\Http\Controllers\CryptoPaymentController::class, ['cryptopsid' => $payment_session_id]);
         
         return $paymentbox_url;
     }
